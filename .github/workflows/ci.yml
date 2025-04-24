@@ -19,17 +19,26 @@ jobs:
         with:
           distribution: "temurin"
           java-version: "17"
+
       - name: Show directory structure
         run: |
           echo "Working Directory: $(pwd)"
           ls -R
 
-      - name: Build with Maven
-        run: |
-          cd Experiment4
-          mvn clean install
+      - name: Build EurekaServer
+        run: mvn -f Experiment4/EurekaServer/pom.xml clean install
 
-      - name: Run Tests
-        run: |
-          cd Experiment4
-          mvn test
+      - name: Build ServiceA
+        run: mvn -f Experiment4/ServiceA/pom.xml clean install
+
+      - name: Build ServiceB
+        run: mvn -f Experiment4/ServiceB/pom.xml clean install
+
+      - name: Test EurekaServer
+        run: mvn -f Experiment4/EurekaServer/pom.xml test
+
+      - name: Test ServiceA
+        run: mvn -f Experiment4/ServiceA/pom.xml test
+
+      - name: Test ServiceB
+        run: mvn -f Experiment4/ServiceB/pom.xml test
