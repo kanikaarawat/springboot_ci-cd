@@ -26,31 +26,19 @@ jobs:
           ls -R
 
       - name: Build EurekaServer
-        run: |
-          cd Experiment4
-          mvn -f EurekaServer/pom.xml clean install
+        run: mvn -f EurekaServer/pom.xml clean install
 
       - name: Build ServiceA
-        run: |
-          cd Experiment4
-          mvn -f ServiceA/pom.xml clean install
+        run: mvn -f ServiceA/pom.xml clean install
 
       - name: Build ServiceB
-        run: |
-          cd Experiment4
-          mvn -f ServiceB/pom.xml clean install
+        run: mvn -f ServiceB/pom.xml clean install
 
       - name: Test EurekaServer
-        run: |
-          cd Experiment4
-          mvn -f EurekaServer/pom.xml test
+        run: mvn -f EurekaServer/pom.xml test
 
       - name: Test ServiceA
-        run: |
-          cd Experiment4
-          mvn -f ServiceA/pom.xml test
+        run: mvn -f ServiceA/pom.xml test
 
       - name: Test ServiceB
-        run: |
-          cd Experiment4
-          mvn -f ServiceB/pom.xml test
+        run: mvn -f ServiceB/pom.xml test
