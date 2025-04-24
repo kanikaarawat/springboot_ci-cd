@@ -19,6 +19,10 @@ jobs:
         with:
           distribution: "temurin"
           java-version: "17"
+      - name: Show directory structure
+        run: |
+          echo "Working Directory: $(pwd)"
+          ls -R
 
       - name: Build with Maven
         run: |
